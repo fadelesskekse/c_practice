@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdint.h>
+// #include <stdio.h>
+// #include <stdint.h>
 
 // int main(void)
 // {
@@ -356,15 +356,44 @@
 
 int main(void){
 
-int32_t  signed_value   = -1;
-uint32_t unsigned_value = 1;
+// int32_t  signed_value   = -1;
+// uint32_t unsigned_value = 1;
 
-if (signed_value < unsigned_value)
-{
-    printf("-1 is smaller\n");
-}
+
+// if (signed_value < unsigned_value)
+// {
+//     printf("-1 is smaller\n");
+// }
+// else
+// {
+//     printf("something surprising happened\n");
+// }
+// }
+//Note that C has rules when comparing 2 different types. 
+//I get lots of segmentation faults trying to cast a -1 int32_t to a uint32_t
+
+//This can pose issues: (I.E. current time - past time) but current time is accidentially a int32_t, whcih can go negative
+
+// uint8_t a = 255;
+// a++;
+// printf("%u\n",a);
+
+// uint8_t a = 250;
+// uint8_t b = 10;
+
+// printf("%zu\n", sizeof(a + b));
+
+  //  uint8_t x = 0x0F;
+//0000 1111 -> unsigned x =  4 + 2 + 1 + 8
+   // printf("x  = 0x%02X\n", (unsigned)x); //= 15
+   // printf("~x = 0x%08X\n", (unsigned)~x);// Gets upconverted to 32 bits recall, so we get 11111111 11111111 11111111 1111 0000
+    //0xFFFFFFF0
+    // ~x normally upconverts to 4 bytes (32 bits)
+    int32_t  a = -1;
+uint32_t b = 1;
+
+if (a < b)
+    printf("a < b\n");
 else
-{
-    printf("something surprising happened\n");
-}
+    printf("a >= b\n");
 }
