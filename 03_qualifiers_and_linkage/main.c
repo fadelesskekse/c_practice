@@ -300,3 +300,33 @@ int main(void)
 
     return 0;
 }
+
+//Summary:
+
+//Volatile: Make sure the compiler knows to re-read the value of that variable every time we access it
+    //in code as it might be changed outside of the software, like some hardware register
+    // so even if the code looks like it might not need to reread, do it anyways. 
+
+//Const: You can't change the variable in software, but it could still be changed out of the 
+    // software
+    //Can be put into flash, potentially causing latency issues
+    // might have dive deeper to figure out exactly what the compiler ends up doing
+
+// const volatile: software can't change it, but externally it could be changed
+    // This is the most constricting as you are explicitly telling the compiler
+    // that this variable will only be changed outside of software basically 
+
+//Static: Persists through the lifetime of the program running
+
+    //File scope Static:
+        // Can be accessed by other files using getters or setters, but in general is private to this file
+            // As in you can't call the variable directly from another file
+
+    //Function Scope Static:
+        // Exists within the scope of the funciton (can only be edited within that function),
+        // but exists between function calls
+
+    // extern: The definition of this variable is in a different file, but I am declaring it
+    // so the compiler knows the definition exists elsewhere, and I can use it in this file.
+
+    // 
