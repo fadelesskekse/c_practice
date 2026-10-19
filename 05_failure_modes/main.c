@@ -339,3 +339,9 @@ GPIOA->BSRR = (1u << 5);
 
 
 //onto critical sections 
+
+// works at -O0
+// breaks at -O2
+
+// if you don't do any optimizastion, and the code works, but you then optimize and there are issues, it is likely
+//you have undefined behavior in youe system that was optimized away 

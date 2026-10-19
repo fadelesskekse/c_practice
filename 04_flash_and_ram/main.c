@@ -49,7 +49,7 @@
 
 // uint32_t gain = 25;
 
-//most likely in .data as it needs to be writable at runtime, and most likely in flash.
+//most likely in .data as it needs to be writable at runtime, 
 
 //the initial value though is in flash
 //at the beginning of runtime, startup code will copy that data from flash into its proper ram locations 
